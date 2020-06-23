@@ -1,0 +1,65 @@
+"Near-Earth Objects (NEOs) are comets and asteroids that have been nudged by the gravitational attraction of nearby planets into orbits that allow them to enter the Earth’s neighborhood. Composed mostly of water ice with embedded dust particles, comets originally formed in the cold outer planetary system while most of the rocky asteroids formed in the warmer inner solar system between the orbits of Mars and Jupiter"
+type NEO {
+    _id: ID!
+    neo_reference_id: String!
+    name: String!
+    absolute_magnitude_h: Float
+    estimated_diameter: EstimatedDiameter
+    is_potentially_hazardous_asteroid: Boolean
+    close_approach_data: [Approach]
+    orbit_data: Orbit
+}
+
+
+type EstimatedDiameter {
+    kilometers: EstimatedDiameterKilometers
+}
+
+type EstimatedDiameterKilometers {
+    estimated_diameter_min: Float
+    estimated_diameter_max: Float
+}
+
+"The specific date where NEO asteroid going through Orbit Earth"
+type Approach {
+    epoch_date_close_approach: Int
+    relative_velocity: RelativeVelocity
+    miss_distance_kilometers: MissDistance
+}
+
+type RelativeVelocity {
+    kilometers_per_hour:String
+}
+
+"The maximum distance at which the explosion of a missile head can be expected to damage seriously its target"
+type MissDistance {
+    kilometers:String
+}
+
+
+type OrbitClass {
+    orbit_class_type: String
+    orbit_class_description: String
+    orbit_class_range: String
+}
+
+"An orbit is a regular, repeating path that one object in space takes around another one. An object in an orbit is called a satellite. A satellite can be natural, like Earth or the moon. Many planets have moons that orbit them. A satellite can also be man-made, like the International Space Station."
+type Orbit {
+    orbit_determination_date: String
+    minimum_orbit_intersection: String
+    eccentricity: String
+    semi_major_axis: String
+    inclination: String
+    orbital_period: String
+    perihelion_distance: String
+    aphelion_distance: String
+    orbit_class: [OrbitClass]
+}
+
+
+type Query {
+    "Return all Neos Objects"
+    getNeos: [NEO]
+    "Return a specific NEO Object"
+    getNeo(id: ID!): NEO
+}
