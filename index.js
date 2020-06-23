@@ -26,7 +26,7 @@ app.use(helmet());
 
 // LOAD SCHEMA
 const typeDefs = readFileSync(
-    join(__dirname,'lib','schema.graphql'),
+    join(__dirname,'lib','graphql','schema.graphql'),
     'utf-8'
 )
 
