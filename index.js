@@ -24,6 +24,9 @@ const isDev = (process.env.NODE_ENV !== 'production ');
 app.use(cors())
 app.use(helmet());
 
+// static files
+app.use('/static', express.static(join(__dirname,"public")))
+
 // LOAD SCHEMA
 const typeDefs = readFileSync(
     join(__dirname,'lib','graphql','schema.graphql'),

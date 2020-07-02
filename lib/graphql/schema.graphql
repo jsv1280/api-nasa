@@ -22,6 +22,7 @@ type EstimatedDiameterKilometers {
 
 "The specific date where NEO asteroid going through Orbit Earth"
 type Approach {
+    close_approach_date: String
     epoch_date_close_approach: Int
     relative_velocity: RelativeVelocity
     miss_distance_kilometers: MissDistance
@@ -62,4 +63,6 @@ type Query {
     getNeos: [NEO]
     "Return a specific NEO Object"
     getNeo(id: ID!): NEO
+    "Return Neo Objects by range of dates"
+    getNeosByDate(firstDate: String!,secondDate:String!): [NEO]
 }

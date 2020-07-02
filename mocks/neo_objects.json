@@ -1,6 +1,7 @@
 [
     {
         "neo_reference_id":"2021277",
+        "image_url":"asteroid_15123468.jpg",
         "name":"21277 (1996 TO5)",
         "absolute_magnitude_h":16.1,
         "estimated_diameter":{
@@ -11,6 +12,7 @@
         },
         "is_potentially_hazardous_asteroid":false,
         "close_approach_data":[{
+            "close_approach_date": "2020-07-01",
             "epoch_date_close_approach":-775272300000,
             "relative_velocity":{
                 "kilometers_per_hour":"55834.1106763388"
@@ -36,6 +38,7 @@
         }
     },{
         "neo_reference_id":"3726710",
+        "image_url":"Asteroide1.jpg",
         "name":"(2015 RC)",
         "absolute_magnitude_h":24.3,
         "estimated_diameter":{
@@ -46,6 +49,7 @@
         },
         "is_potentially_hazardous_asteroid":false,
         "close_approach_data":[{
+            "close_approach_date": "2020-07-01",
             "epoch_date_close_approach":1441705500000,
             "relative_velocity":{
                 "kilometers_per_hour":"70146.106302123"
@@ -58,6 +62,7 @@
     {
         "neo_reference_id":"2162038",
         "name":"162038 (1996 DH)",
+        "image_url":"PIA02494_orig.jpg",
         "absolute_magnitude_h":16.6,
         "estimated_diameter":{
             "kilometers":{
@@ -66,7 +71,16 @@
             }
         },
         "is_potentially_hazardous_asteroid":false,
-        "close_approach_data":[],
+        "close_approach_data":[{
+            "close_approach_date": "2020-07-02",
+            "epoch_date_close_approach":1441705500000,
+            "relative_velocity":{
+                "kilometers_per_hour":"70146.106302123"
+            },
+            "miss_distance":{
+                "kilometers":"4027630.320552233"
+            }
+        }],
         "orbital_data":{
             "orbit_determination_date":"2020-05-26 08:20:27",
             "minimum_orbit_intersection":".135023",
@@ -85,6 +99,7 @@
     },{
         "neo_reference_id":"2189058",
         "name":"189058 (2000 UT16)",
+        "image_url":"468183main_2_Lutetia_and_Saturn_full.jpg",
         "absolute_magnitude_h":16.5,
         "estimated_diameter":{
             "kilometers":{
@@ -93,7 +108,16 @@
             }
         },
         "is_potentially_hazardous_asteroid":false,
-        "close_approach_data":[],
+        "close_approach_data":[{
+            "close_approach_date": "2020-07-02",
+            "epoch_date_close_approach":1441705500000,
+            "relative_velocity":{
+                "kilometers_per_hour":"70146.106302123"
+            },
+            "miss_distance":{
+                "kilometers":"4027630.320552233"
+            }
+        }],
         "orbital_data":{
             "orbit_determination_date":"2020-05-22 09:03:02",
             "minimum_orbit_intersection":".538031",
@@ -112,6 +136,7 @@
     },{
         "neo_reference_id":"2276274",
         "name":"276274 (2002 SS41)",
+        "image_url":"Orion.jpg",
         "absolute_magnitude_h":17.2,
         "estimated_diameter":{
             "kilometers":{
@@ -119,7 +144,16 @@
             }
         },
         "is_potentially_hazardous_asteroid":false,
-        "close_approach_data":[],
+        "close_approach_data":[{
+            "close_approach_date": "2020-07-03",
+            "epoch_date_close_approach":1441705500000,
+            "relative_velocity":{
+                "kilometers_per_hour":"70146.106302123"
+            },
+            "miss_distance":{
+                "kilometers":"4027630.320552233"
+            }
+        }],
         "orbital_data":{
             "orbit_determination_date":"2020-06-09 07:14:21",
             "minimum_orbit_intersection":".601811",
@@ -139,13 +173,23 @@
         "neo_reference_id":"2322913",
         "name":"322913 (2002 CM1)",
         "absolute_magnitude_h":16.7,
+        "image_url":"951_Gaspra.jpg",
         "estimated_diameter":{
             "kilometers":{
                 "estimated_diameter_min":1.214940408,"estimated_diameter_max":2.7166893409
             }
         },
         "is_potentially_hazardous_asteroid":false,
-        "close_approach_data":[],
+        "close_approach_data":[{
+            "close_approach_date": "2020-07-04",
+            "epoch_date_close_approach":1441705500000,
+            "relative_velocity":{
+                "kilometers_per_hour":"70146.106302123"
+            },
+            "miss_distance":{
+                "kilometers":"4027630.320552233"
+            }
+        }],
         "orbital_data":{
             "orbit_determination_date":"2019-01-31 08:16:35",
             "minimum_orbit_intersection":".577928",
@@ -165,6 +209,7 @@
         "neo_reference_id":"2435730",
         "name":"435730 (2008 UK90)",
         "absolute_magnitude_h":18.9,
+        "image_url":"asteroid-4433447_1923.jpg",
         "estimated_diameter":{
             "kilometers":{
                 "estimated_diameter_min":0.4411182,
@@ -172,7 +217,16 @@
             }
         },
         "is_potentially_hazardous_asteroid":false,
-        "close_approach_data":[],
+        "close_approach_data":[{
+            "close_approach_date": "2020-07-05",
+            "epoch_date_close_approach":1441705500000,
+            "relative_velocity":{
+                "kilometers_per_hour":"70146.106302123"
+            },
+            "miss_distance":{
+                "kilometers":"4027630.320552233"
+            }
+        }],
         "orbital_data":{
             "orbit_determination_date":"2017-04-12 06:15:44",
             "minimum_orbit_intersection":".562229",
