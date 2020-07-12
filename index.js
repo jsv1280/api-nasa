@@ -17,7 +17,7 @@ const { readFileSync } = require('fs')
 
 // INITALIZE EXPRESS APP
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8090;
 const isDev = (process.env.NODE_ENV !== 'production ');
 
 // ADD LAYERS OF SECURITY

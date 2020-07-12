@@ -10,6 +10,21 @@ type NEO {
     orbit_data: Orbit
 }
 
+"User registration for memorama"
+type Subscriber {
+    _id: ID!
+    name: String!
+    email: String!
+}
+
+
+"Game of Asteroids"
+type Memorama {
+    _id: ID!
+    name: String!
+    time: String!
+    date: String!
+}
 
 type EstimatedDiameter {
     kilometers: EstimatedDiameterKilometers
@@ -65,4 +80,23 @@ type Query {
     getNeo(id: ID!): NEO
     "Return Neo Objects by range of dates"
     getNeosByDate(firstDate: String!,secondDate:String!): [NEO]
+    "Return all Subscripter"
+    getSubscribers: [Subscriber]
+    "Return a specific subscriber"
+    getSubscriber(email: String!): Subscriber
+     "Return all scores of memorama"
+    getMemoramas: [Memorama]
+    "Return a specific score of memorama"
+    getMemorama(id: ID!): Memorama
+}
+
+
+input SubscriberInput {
+    name: String!
+    email: String!
+}
+
+type Mutation {
+    "Create a Subscriber"
+    createSubscriber(input: SubscriberInput!): Subscriber
 }
