@@ -50,6 +50,6 @@ This project is under license MIT
 [github_url]: https://github.com/jsv1280
 [postman_url]: https://documenter.getpostman.com/view/3487826/SzzgAek7?version=latest#c624438b-50ed-459e-8377-e0b2922fb922
 [neowsapp]: https://neowsapp.com/
-[jpl] : https://www.jpl.nasa.gov/
-[cneos] : https://cneos.jpl.nasa.gov/
+[jpl]: https://www.jpl.nasa.gov/
+[cneos]: https://cneos.jpl.nasa.gov/
 
