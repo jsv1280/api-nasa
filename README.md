@@ -18,6 +18,17 @@
 - Dotenv
 - Standard,Nodemon _(Development)_
 
+## :microscope: Documentation
+
+This project start documenting the public [NASA API Asteroids NeoWs][nasa_api] to have clear all the endpoints and data expose for the NASA API. To make more clear this, I documented the API with Postman to add a more descriptive view to check how behave this API and with that check which data will be included in this API
+
+> [Postman Documentation REST API NASA][postman_url]
+
+GraphQL is self-documented so you can check SDL(Schema Definition Language) of this project in `lib/graphql/schema.graphql`
+
+> For development remember **graphiql** will activate to check in the GUI all querys,mutations,inputs of the schema definition 
+
+
 ## :black_nib: Author
 -  [Jairo Salazar][github_url] Backend Developer (Platzi Master Student)
 
@@ -35,3 +46,5 @@ This project is under license MIT
 
 [nasa_api]: https://api.nasa.gov/
 [github_url]: https://github.com/jsv1280
+[postman_url]: https://documenter.getpostman.com/view/3487826/SzzgAek7?version=latest#c624438b-50ed-459e-8377-e0b2922fb922
+
