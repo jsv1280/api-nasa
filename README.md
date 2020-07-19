@@ -30,15 +30,17 @@ GraphQL is self-documented so you can check SDL(Schema Definition Language) of t
 
 > For development remember **graphiql** will activate to check in the GUI all querys,mutations,inputs of the schema definition 
 
-## :airplane: DEPLOY
+## :airplane: Deploy
 
 - In your AWS Instance make sure you have successfully installed the previous requirements detailed in the beginning
 - Install globally pm2 `npm install pm2 -g`
 - Start Service `npm run start`
 
-## :zap: DEMO
+## :zap: Demo
 
-To use this service make a POST request with your queries to `http://ec2-52-91-121-214.compute-1.amazonaws.com:8080/api/graphql`
+To use this service make a POST request with your queries to:
+`http://ec2-52-91-121-214.compute-1.amazonaws.com:8080/api/graphql`
+
 In `/mocks/graphql_client.js` you can find a simple example
 
 
