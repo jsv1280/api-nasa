@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -e js,graphql index",
-    "start": "node index",
+    "start": "pm2 start index.js",
+    "restart": "pm2 restart index.js",
+    "stop": "pm2 stop index.js",
     "lint": "standard",
     "lint-fix": "standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
