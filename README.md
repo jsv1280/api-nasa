@@ -39,7 +39,7 @@ GraphQL is self-documented so you can check SDL(Schema Definition Language) of t
 ## :zap: Demo
 
 To use this service make a POST request with your queries to:
-`http://ec2-52-91-121-214.compute-1.amazonaws.com:8080/api/graphql`
+- `http://ec2-52-91-121-214.compute-1.amazonaws.com:8080/api/graphql`
 
 In `/mocks/graphql_client.js` you can find a simple example
 
