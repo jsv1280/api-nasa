@@ -40,11 +40,16 @@ This project is under license MIT
 - Team Cohort3-Cesar
 - Platzi
 
-
-
+## :telescope: References
+- [Official REST API NASA NEOWS Documentation][neowsapp]
+- [Jet Propulsion Laboratory][jpl]
+- [Center for Nearth Earth Object Studies][cneos]	
 
 
 [nasa_api]: https://api.nasa.gov/
 [github_url]: https://github.com/jsv1280
 [postman_url]: https://documenter.getpostman.com/view/3487826/SzzgAek7?version=latest#c624438b-50ed-459e-8377-e0b2922fb922
+[neowsapp]: https://neowsapp.com/
+[jpl] : https://www.jpl.nasa.gov/
+[cneos] : https://cneos.jpl.nasa.gov/
 
