@@ -1,7 +1,7 @@
 # API-NEO-NASA-GraphQL ![Status badge](https://img.shields.io/badge/status-in%20progress-yellow)
 > Backend Service to deploy NEO(Nearth Earth Objects) in GraphQL based on public [NASA API Asteroids NeoWs][nasa_api]
 
-## :loudspeaker: Pre requirements
+## :loudspeaker: Requirements
 - Node JS 12.18.1 _(Recommended)_
 - Mongo DB 4.2.8 _(Recommended)_
 
@@ -17,6 +17,8 @@
 - MongoDB (NodeJS Mongo DB Driver)
 - Dotenv
 - Standard,Nodemon _(Development)_
+- AWS EC2 Instance
+- PM2 _(Production)_
 
 ## :microscope: Documentation
 
@@ -27,6 +29,17 @@ This project start documenting the public [NASA API Asteroids NeoWs][nasa_api] t
 GraphQL is self-documented so you can check SDL(Schema Definition Language) of this project in `lib/graphql/schema.graphql`
 
 > For development remember **graphiql** will activate to check in the GUI all querys,mutations,inputs of the schema definition 
+
+## :airplane: DEPLOY
+
+- In your AWS Instance make sure you have successfully installed the previous requirements detailed in the beginning
+- Install globally pm2 `npm install pm2 -g`
+- Start Service `npm run start`
+
+## :zap: DEMO
+
+To use this service make a POST request with your queries to `http://ec2-52-91-121-214.compute-1.amazonaws.com:8080/api/graphql`
+In `/mocks/graphql_client.js` you can find a simple example
 
 
 ## :black_nib: Author
