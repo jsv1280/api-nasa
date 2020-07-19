@@ -1,3 +1,4 @@
+// LOAD ENVIRONMENT VARIABLES 
 require('dotenv').config()
 
 // EXPRESS
@@ -5,12 +6,12 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
-//GRAPHQL
+// GRAPHQL
 const graphqlMiddleware = require('express-graphql')
 const { makeExecutableSchema } = require('graphql-tools')
 const resolvers = require('./lib/graphql/resolvers')
 
-//UTILS
+// UTILS
 const { join } = require('path')
 const { readFileSync } = require('fs')
 
@@ -18,13 +19,13 @@ const { readFileSync } = require('fs')
 // INITALIZE EXPRESS APP
 const app = express();
 const port = process.env.PORT || 8090;
-const isDev = (process.env.NODE_ENV !== 'production ');
+const isDev = (process.env.NODE_ENV !== 'production');
 
 // ADD LAYERS OF SECURITY
 app.use(cors())
 app.use(helmet());
 
-// static files
+// STATIC FILES
 app.use('/static', express.static(join(__dirname,"public")))
 
 // LOAD SCHEMA
@@ -41,7 +42,7 @@ const schema = makeExecutableSchema({
 app.use('/api/graphql', graphqlMiddleware({
     schema: schema,
     rootValue: resolvers,
-    graphiql: true
+    graphiql: isDev
 }))
 
 // START SERVER
