@@ -40,7 +40,7 @@ type Approach {
     close_approach_date: String
     epoch_date_close_approach: Int
     relative_velocity: RelativeVelocity
-    miss_distance_kilometers: MissDistance
+    miss_distance: MissDistance
 }
 
 type RelativeVelocity {
