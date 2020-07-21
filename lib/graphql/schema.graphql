@@ -7,7 +7,7 @@ type NEO {
     estimated_diameter: EstimatedDiameter
     is_potentially_hazardous_asteroid: Boolean
     close_approach_data: [Approach]
-    orbit_data: Orbit
+    orbital_data: Orbit
 }
 
 "User registration for memorama"
