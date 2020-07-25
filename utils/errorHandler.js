@@ -1,6 +1,5 @@
-function errorHandler(error){
-    console.error(error)
-    throw new Error('Fallo en la operación del servidor')
+function errorHandler(title,description){
+    throw new Error(`[${title}] ${description}`)
 }
 
 module.exports = errorHandler

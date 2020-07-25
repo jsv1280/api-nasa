@@ -75,17 +75,17 @@ type Orbit {
 
 type Query {
     "Return all Neos Objects"
-    getNeos: [NEO]
+    getNeos(first: Int, skip: Int): [NEO]
     "Return a specific NEO Object"
     getNeo(id: ID!): NEO
     "Return Neo Objects by range of dates"
     getNeosByDate(firstDate: String!,secondDate:String!): [NEO]
     "Return all Subscripter"
-    getSubscribers: [Subscriber]
+    getSubscribers(first: Int, skip: Int): [Subscriber]
     "Return a specific subscriber"
     getSubscriber(email: String!): Subscriber
      "Return all scores of memorama"
-    getMemoramas: [Memorama]
+    getMemoramas(first: Int, skip: Int): [Memorama]
     "Return a specific score of memorama"
     getMemorama(id: ID!): Memorama
 }
