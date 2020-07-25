@@ -46,6 +46,7 @@ In `/mocks/graphql_client.js` you can find a simple example
 ## :books: Frontend Implementations
 
 - **[NeoBit][abdiel_project]** By [José Abdiel Ortega Vázquez][abdiel_github] 
+- **[CommetCat][rafa_hector_project]** By [Hector Reyes][hector_github] and [Rafael Alvarez Cardona][rafa_github]
 
 ## :black_nib: Author
 -  [Jairo Salazar][github_url] Backend Developer (Platzi Master Student)
@@ -72,3 +73,6 @@ This project is under license MIT
 [cneos]: https://cneos.jpl.nasa.gov/
 [abdiel_github]: https://github.com/abdieljortega
 [abdiel_project]: https://github.com/WS-Jedp/NeoBit
+[rafa_hector_project]: https://github.com/rafeldev/comeet-cat
+[hector_github]: https://github.com/HectorDevx
+[rafa_github]: https://github.com/rafeldev 
