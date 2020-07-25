@@ -43,6 +43,9 @@ To use this service make a POST request with your queries to:
 
 In `/mocks/graphql_client.js` you can find a simple example
 
+## :books: Frontend Implementations
+
+- **[NeoBit][abdiel_project]** By [José Abdiel Ortega Vázquez][abdiel_github] 
 
 ## :black_nib: Author
 -  [Jairo Salazar][github_url] Backend Developer (Platzi Master Student)
@@ -67,4 +70,5 @@ This project is under license MIT
 [neowsapp]: https://neowsapp.com/
 [jpl]: https://www.jpl.nasa.gov/
 [cneos]: https://cneos.jpl.nasa.gov/
-
+[abdiel_github]: https://github.com/abdieljortega
+[abdiel_project]: https://github.com/WS-Jedp/NeoBit
