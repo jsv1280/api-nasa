@@ -7,7 +7,7 @@ type NEO {
     absolute_magnitude_h: Float
     estimated_diameter: EstimatedDiameter
     is_potentially_hazardous_asteroid: Boolean
-    close_approach_data: [Approach]
+    close_approach_data: Approach
     orbital_data: Orbit
 }
 
@@ -70,7 +70,7 @@ type Orbit {
     orbital_period: String
     perihelion_distance: String
     aphelion_distance: String
-    orbit_class: [OrbitClass]
+    orbit_class: OrbitClass
 }
 
 
