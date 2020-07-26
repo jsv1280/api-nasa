@@ -1,5 +1,5 @@
-// LOAD ENVIRONMENT VARIABLES 
-require('dotenv').config()
+// CONFIG 
+const config = require('./config')
 
 // EXPRESS
 const express = require('express');
@@ -20,8 +20,6 @@ const connectDb = require('./lib/mongodb');
 
 // INITALIZE EXPRESS APP
 const app = express();
-const port = process.env.PORT || 8090;
-const isDev = (process.env.NODE_ENV !== 'production');
 
 // ADD LAYERS OF SECURITY
 app.use(cors())
@@ -81,10 +79,10 @@ app.get('/rest/nasa_neo',function(req,res){
 app.use('/api/graphql', graphqlMiddleware({
     schema: schema,
     rootValue: resolvers,
-    graphiql: isDev
+    graphiql: config.environment
 }))
 
 // START SERVER
-app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}`)
+app.listen(config.express_api.port, () => {
+    console.log(`Server is listening at http://localhost:${config.express_api.port}`)
 })
