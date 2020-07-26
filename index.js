@@ -14,7 +14,8 @@ const resolvers = require('./lib/graphql/resolvers')
 // UTILS
 const { join } = require('path')
 const { readFileSync } = require('fs')
-
+const httpsRequest = require('./utils/httpsRequest');
+const normalize = require('./utils/normalize');
 
 // INITALIZE EXPRESS APP
 const app = express();
@@ -38,6 +39,18 @@ const schema = makeExecutableSchema({
     typeDefs, resolvers
 })
 
+app.get('/rest/nasa_neo',function(req,res){
+    
+    const {page,size,api_key_nasa} = process.env
+
+    httpsRequest({page,size,api_key_nasa},function(data){
+
+        const normalized_data = normalize(JSON.parse(data))
+
+        res.json(normalized_data)
+    })
+})
+
 // ADD MIDDLEWARE TO EXPRESS
 app.use('/api/graphql', graphqlMiddleware({
     schema: schema,
@@ -47,5 +60,5 @@ app.use('/api/graphql', graphqlMiddleware({
 
 // START SERVER
 app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}/api/graphql`)
+    console.log(`Server is listening at http://localhost:${port}`)
 })
