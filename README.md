@@ -47,6 +47,7 @@ In `/mocks/graphql_client.js` you can find a simple example
 
 - **[NeoBit][abdiel_project]** By [José Abdiel Ortega Vázquez][abdiel_github] 
 - **[CommetCat][rafa_hector_project]** By [Hector Reyes][hector_github] and [Rafael Alvarez Cardona][rafa_github]
+- **[T-rexpace][juan_felipe_github]** By [Juan Gaybre][juan_github] and [Felipe Merchan][felipe_github]
 
 ## :black_nib: Author
 -  [Jairo Salazar][github_url] Backend Developer (Platzi Master Student)
@@ -76,3 +77,6 @@ This project is under license MIT
 [rafa_hector_project]: https://github.com/rafeldev/comeet-cat
 [hector_github]: https://github.com/HectorDevx
 [rafa_github]: https://github.com/rafeldev 
+[juan_github]: https://github.com/Gaybre
+[felipe_github]: https://github.com/FelipeMerchan
+[juan_felipe_github]: https://github.com/T-rexpace
