@@ -16,6 +16,7 @@ const { join } = require('path')
 const { readFileSync } = require('fs')
 const httpsRequest = require('./utils/httpsRequest');
 const normalize = require('./utils/normalize');
+const connectDb = require('./lib/mongodb');
 
 // INITALIZE EXPRESS APP
 const app = express();
@@ -43,11 +44,36 @@ app.get('/rest/nasa_neo',function(req,res){
     
     const {page,size,api_key_nasa} = process.env
 
-    httpsRequest({page,size,api_key_nasa},function(data){
+    httpsRequest({page,size,api_key_nasa},async function(data){
 
         const normalized_data = normalize(JSON.parse(data))
 
-        res.json(normalized_data)
+        try {
+            db = await connectDb()
+            neo = await db.collection('neo').findOne({ neo_reference_id : normalized_data[0].neo_reference_id})
+
+            if(neo){
+                res.status(409).json({
+                    title: 'Duplicated Resources',
+                    error: 'Neos Object was created previously'
+                }) 
+            }
+            else {
+                
+                neos = await db.collection('neo').insertMany(normalized_data)
+                res.json(neos.ops)
+            }
+           
+        } catch (error) {
+            console.error(error)
+
+            res.status(500).json({
+                title: error.title,
+                error: error.message
+            })
+        }
+        
+        
     })
 })
 
