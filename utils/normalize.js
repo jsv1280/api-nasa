@@ -3,9 +3,8 @@ const imageSelection = require('./imageSelection')
 function normalize(nasa_data){
 
     const normalize_data = nasa_data.near_earth_objects.filter((asteroid) =>{
-        return asteroid.close_approach_data.length > 0
-    }).map((asteroid)=>{
-        
+        return asteroid.close_approach_data.length > 0 && asteroid.orbital_data.orbit_class
+    }).map((asteroid)=>{    
         return  {
             neo_reference_id: asteroid.neo_reference_id,
             name: asteroid.name,
