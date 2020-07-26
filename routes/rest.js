@@ -1,4 +1,11 @@
-const express = require('express');
+const express = require('express')
+
+const connectDb = require('../lib/mongodb')
+
+const response = require('../utils/response')
+const httpsRequest = require('../utils/httpsRequest');
+const normalize = require('../utils/normalize');
+
 
 function restApi(app){
     const router = express.Router();
@@ -6,27 +13,63 @@ function restApi(app){
 
     router.get('/', async function(req,res,next){
 
-      
         try {
-           
-            res.status(200).json({
-                message: "Movies Listed"
-            })
+            db = await connectDb()
+            neos = await db.collection('neo').find().toArray()
+
+            response(200,{
+                message: "Neos listed",
+                neos,
+            },res)
+
         } catch (error) {
-            console.log(error)
+            console.error(error)
+
+            response(500,{
+                title: error.title,
+                message: error.message,
+            },res)
         }
     });
 
     router.post('/', async function(req,res,next){
 
-        try {
-            res.status(201).json({
-                message: "Movie Created"
-            })
-        } catch (error) {
-            console.log(error)
+        const {page,size,api_key_nasa} = process.env
+
+        httpsRequest({page,size,api_key_nasa},async function(data){
+
+            const normalized_data = normalize(JSON.parse(data))
+
+            try {
+                db = await connectDb()
+                neo = await db.collection('neo').findOne({ neo_reference_id : normalized_data[0].neo_reference_id})
+
+                if(neo){
+
+                    response(409,{
+                        message: "Duplicated neos",
+                        error: 'Neos object was created previously',
+                    },res)
+                }
+                else {
+                    
+                    neos = await db.collection('neo').insertMany(normalized_data)
+                    
+                    response(201,{
+                        message: 'Neos created',
+                        neos : neos.ops
+                    },res)
+                }
             
-        }
+            } catch (error) {
+                console.error(error)
+
+                response(500,{
+                    title: error.title,
+                    error: error.message
+                },res)
+            }
+        })
     });
     
 }
