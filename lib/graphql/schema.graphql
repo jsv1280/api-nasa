@@ -1,6 +1,7 @@
 "Near-Earth Objects (NEOs) are comets and asteroids that have been nudged by the gravitational attraction of nearby planets into orbits that allow them to enter the Earth’s neighborhood. Composed mostly of water ice with embedded dust particles, comets originally formed in the cold outer planetary system while most of the rocky asteroids formed in the warmer inner solar system between the orbits of Mars and Jupiter"
 type NEO {
     _id: ID!
+    image: String
     neo_reference_id: String!
     name: String!
     absolute_magnitude_h: Float
