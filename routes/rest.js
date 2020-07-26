@@ -1,4 +1,5 @@
 const express = require('express')
+const { ObjectID } = require('mongodb')
 
 const connectDb = require('../lib/mongodb')
 
@@ -28,7 +29,7 @@ function restApi(app){
             response(500,{
                 title: error.title,
                 message: error.message,
-            },res)
+            },res)      
         }
     });
 
@@ -43,16 +44,14 @@ function restApi(app){
             try {
                 db = await connectDb()
                 neo = await db.collection('neo').findOne({ neo_reference_id : normalized_data[0].neo_reference_id})
-
                 if(neo){
-
+                    
                     response(409,{
                         message: "Duplicated neos",
                         error: 'Neos object was created previously',
                     },res)
                 }
                 else {
-                    
                     neos = await db.collection('neo').insertMany(normalized_data)
                     
                     response(201,{
@@ -70,6 +69,55 @@ function restApi(app){
                 },res)
             }
         })
+    });
+
+    router.delete('/', async function(req,res,next){
+
+        let message = 'Duplicated NEOS was succesfully deleted'
+
+        try {
+            db = await connectDb()
+            
+            duplicated_neos = await db.collection('neo').aggregate([  
+                { 
+                    $group: { 
+                        _id: {name: "$name"},
+                        uniqueIds: {$addToSet: "$_id"},
+                        count: {$sum: 1}
+                    } 
+                },
+                {
+                    $match: { 
+                        count: {"$gt": 1}
+                    }
+                }
+            ]).toArray()
+
+            // If doesn't exist duplicate NEO 
+            if(duplicated_neos.length == 0) {
+                message = "No duplicated NEOS objects"
+            }
+            else {
+                // Get referenced id to elements to eliminate
+                const deletedNeos = duplicated_neos.map((neo)=>{
+                    return ObjectID(neo.uniqueIds[0])
+                })
+        
+                deleted_neos_documents =  await db.collection('neo').deleteMany({_id: { $in: deletedNeos}});
+            }
+
+            response(200,{
+                message
+            },res)
+ 
+        } catch (error) {
+            console.error(error)
+
+            response(500,{
+                title: error.title,
+                error: error.message
+            },res)
+        }
     });
     
 }
