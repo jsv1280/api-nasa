@@ -1,3 +1,5 @@
+const imageSelection = require('./imageSelection')
+
 function normalize(nasa_data){
 
     const normalize_data = nasa_data.near_earth_objects.filter((asteroid) =>{
@@ -7,6 +9,7 @@ function normalize(nasa_data){
         return  {
             neo_reference_id: asteroid.neo_reference_id,
             name: asteroid.name,
+            image: imageSelection(),
             absolute_magnitude_h: asteroid.absolute_magnitude_h,
             estimated_diameter : {
                 kilometers : {
