@@ -29,6 +29,8 @@ function normalize(nasa_data){
             },
             orbital_data : {
                 orbit_determination_date : asteroid.orbital_data.orbit_determination_date,
+                first_observation_date: asteroid.orbital_data.first_observation_date,
+                last_observation_date: asteroid.orbital_data.last_observation_date,
                 minimum_orbit_intersection : asteroid.orbital_data.minimum_orbit_intersection,
                 eccentricity : asteroid.orbital_data.eccentricity,
                 semi_major_axis : asteroid.orbital_data.semi_major_axis,

@@ -63,6 +63,8 @@ type OrbitClass {
 "An orbit is a regular, repeating path that one object in space takes around another one. An object in an orbit is called a satellite. A satellite can be natural, like Earth or the moon. Many planets have moons that orbit them. A satellite can also be man-made, like the International Space Station."
 type Orbit {
     orbit_determination_date: String
+    first_observation_date: String
+    last_observation_date: String
     minimum_orbit_intersection: String
     eccentricity: String
     semi_major_axis: String
