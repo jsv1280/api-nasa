@@ -7,6 +7,10 @@ const response = require('../utils/response')
 const httpsRequest = require('../utils/httpsRequest');
 const normalize = require('../utils/normalize');
 
+const NeoService = require('../services/neos')
+
+const neoService = new NeoService();
+
 
 function restApi(app){
     const router = express.Router();
@@ -14,9 +18,9 @@ function restApi(app){
 
     router.get('/', async function(req,res,next){
 
+
         try {
-            db = await connectDb()
-            neos = await db.collection('neo').find().toArray()
+            neos = await neoService.getNeos(req.query.first,req.query.skip);
 
             response(200,{
                 message: "Neos listed",
@@ -27,13 +31,14 @@ function restApi(app){
             console.error(error)
 
             response(500,{
-                title: error.title,
                 message: error.message,
             },res)      
         }
     });
 
     router.post('/', async function(req,res,next){
+
+        let neo
 
         const {page,size,api_key_nasa} = process.env
 
@@ -42,21 +47,22 @@ function restApi(app){
             const normalized_data = normalize(JSON.parse(data))
 
             try {
-                db = await connectDb()
-                neo = await db.collection('neo').findOne({ neo_reference_id : normalized_data[0].neo_reference_id})
-                if(neo){
-                    
+        
+                neo = await neoService.getNeoByReference(normalized_data[0].neo_reference_id);
+
+                if(neo.length){
+
                     response(409,{
                         message: "Duplicated neos",
                         error: 'Neos object was created previously',
                     },res)
                 }
                 else {
-                    neos = await db.collection('neo').insertMany(normalized_data)
-                    
+                    neos = await neoService.createNeos(normalized_data);
+                   
                     response(201,{
                         message: 'Neos created',
-                        neos : neos.ops
+                        neos
                     },res)
                 }
             
@@ -64,7 +70,6 @@ function restApi(app){
                 console.error(error)
 
                 response(500,{
-                    title: error.title,
                     error: error.message
                 },res)
             }

@@ -1,5 +1,5 @@
-function errorHandler(title,description){
-    throw new Error(`[${title}] ${description}`)
+function errorHandler(description){
+    throw new Error(description)
 }
 
 module.exports = errorHandler

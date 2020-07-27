@@ -22,10 +22,7 @@ function httpsRequest(dataRequest, callback){
 
         res.on('end', () => {
 
-            //console.log(data, 'DATA');
-            callback(data)
-            
-            
+            callback(data)            
         });
     });
       
