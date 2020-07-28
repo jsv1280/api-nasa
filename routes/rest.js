@@ -77,39 +77,10 @@ function restApi(app){
     });
 
     router.delete('/', async function(req,res,next){
-
-        let message = 'Duplicated NEOS was succesfully deleted'
-
+        let message
         try {
-            db = await connectDb()
-            
-            duplicated_neos = await db.collection('neo').aggregate([  
-                { 
-                    $group: { 
-                        _id: {name: "$name"},
-                        uniqueIds: {$addToSet: "$_id"},
-                        count: {$sum: 1}
-                    } 
-                },
-                {
-                    $match: { 
-                        count: {"$gt": 1}
-                    }
-                }
-            ]).toArray()
 
-            // If doesn't exist duplicate NEO 
-            if(duplicated_neos.length == 0) {
-                message = "No duplicated NEOS objects"
-            }
-            else {
-                // Get referenced id to elements to eliminate
-                const deletedNeos = duplicated_neos.map((neo)=>{
-                    return ObjectID(neo.uniqueIds[0])
-                })
-        
-                deleted_neos_documents =  await db.collection('neo').deleteMany({_id: { $in: deletedNeos}});
-            }
+            message = await neoService.deleteDuplicatedNeos();
 
             response(200,{
                 message
@@ -119,7 +90,6 @@ function restApi(app){
             console.error(error)
 
             response(500,{
-                title: error.title,
                 error: error.message
             },res)
         }

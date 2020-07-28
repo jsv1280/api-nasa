@@ -1,4 +1,5 @@
 const MongoLib = require('../lib/mongodb')
+const { ObjectID } = require('mongodb')
 
 const { convertToDateFormat, isGreater} = require('../utils/dateHandler')
 const errorHandler = require('../utils/errorHandler')
@@ -73,6 +74,41 @@ class NeoService {
         let neo
         try {
             neo = await this.mongoDB.getField(this.collection,"neo_reference_id",value);
+        } catch (error) {
+            errorHandler(error.message)
+        }
+        
+        return neo || [];
+    }
+
+    async deleteDuplicatedNeos(){
+
+        let message
+        let neo
+
+        try {
+            const duplicated_neos = await this.mongoDB.getDuplicatesNeos(this.collection);
+
+            if(duplicated_neos.length == 0) {
+                message = "No duplicated NEOS objects"
+            }
+            else {
+                // Get referenced id to elements to eliminate
+                const deletedNeos = duplicated_neos.map((neo)=>{
+                    return ObjectID(neo.uniqueIds[0])
+                })
+        
+                const deleted_response =  await this.mongoDB.deleteMany(this.collection,deletedNeos);
+
+                if(deleted_response.deletedCount > 0){
+                    message = 'Duplicated NEOS was succesfully deleted'
+                }
+                else {
+                    message = 'None NEO was deleted'
+                }
+            }
+
+            return message
         } catch (error) {
             errorHandler(error.message)
         }
