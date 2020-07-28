@@ -22,9 +22,12 @@
 
 ## :microscope: Documentation
 
-This project start documenting the public [NASA API Asteroids NeoWs][nasa_api] to have clear all the endpoints and data expose for the NASA API. To make more clear this, I documented the API with Postman to add a more descriptive view to check how behave this API and with that check which data will be included in this API
+1. This project start documenting the public [NASA API Asteroids NeoWs][nasa_api] to have clear all the endpoints and data expose for the NASA API. To make more clear this, I documented the API with Postman to add a more descriptive view to check how behave this API and with that check which data will be included in this API
 
 > [Postman Documentation REST API NASA][postman_url]
+
+2. Next step, It was create three endpoints, one for creating new NEOS object based of the data model proposed in graphql schema, other for get all this objects and finally other to delete duplicated NEOS object 
+> [REST Section Documentation API NASA][rest_api]
 
 GraphQL is self-documented so you can check SDL(Schema Definition Language) of this project in `lib/graphql/schema.graphql`
 
@@ -85,3 +88,4 @@ This project is under license MIT
 [luis_osvaldo_github]: https://github.com/ArzateCompany/asteroids
 [luis_github]: https://github.com/cabezas29
 [osvaldo_github]: https://github.com/ArzateCompany
+[rest_api]: https://documenter.getpostman.com/view/12186729/T1Ds9FZZ?version=latest
