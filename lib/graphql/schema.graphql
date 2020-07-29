@@ -1,46 +1,68 @@
 "Near-Earth Objects (NEOs) are comets and asteroids that have been nudged by the gravitational attraction of nearby planets into orbits that allow them to enter the Earth’s neighborhood. Composed mostly of water ice with embedded dust particles, comets originally formed in the cold outer planetary system while most of the rocky asteroids formed in the warmer inner solar system between the orbits of Mars and Jupiter"
 type NEO {
+    """Unique identifier from NEO"""
     _id: ID!
+    """URL direction to access a random image save on server"""
     image: String
+    """Identifier from JPL (NASA Jet Propulsion Laboratory)"""
     neo_reference_id: String!
+    """NEO name"""
     name: String!
+    """Visual Magnitude an observer would record if the asteorid were placed 1 Astronomical Unit(au)"""
     absolute_magnitude_h: Float
+    """NEO Diameter established in kilometers"""
     estimated_diameter: EstimatedDiameter
+    """NEO could cause a danger or larger impact on earth"""
     is_potentially_hazardous_asteroid: Boolean
+    """Information when NEO enter the orbit of the earth"""
     close_approach_data: Approach
+    """Orbital Information"""
     orbital_data: Orbit
 }
 
+"NEO Diameter"
 type EstimatedDiameter {
+    """Unit of measurement (km)"""
     kilometers: EstimatedDiameterKilometers
 }
 
+"Minimum and maximum unit of measurement (km) "
 type EstimatedDiameterKilometers {
     estimated_diameter_min: Float
     estimated_diameter_max: Float
 }
 
-"The specific date where NEO asteroid going through Orbit Earth"
+"Data when NEO asteroid going through Orbit Earth"
 type Approach {
+    """Date with format YYYY-MM-DD"""
     close_approach_date: String
+    """Timestamp date"""
     epoch_date_close_approach: Int
+    """Vector difference between the velocities of two bodies"""
     relative_velocity: RelativeVelocity
+    """Maximum distance at which the explosion of a missile head can be expected to damage seriously its target"""
     miss_distance: MissDistance
 }
 
+"Vector difference between the velocities of two bodies"
 type RelativeVelocity {
+    """Unit of measurement (km/h)"""
     kilometers_per_hour:String
 }
 
 "The maximum distance at which the explosion of a missile head can be expected to damage seriously its target"
 type MissDistance {
+    """Unit of measurement (km)"""
     kilometers:String
 }
 
-
+"Class of specific orbit"
 type OrbitClass {
+    """Type orbit (AMO-APO)"""
     orbit_class_type: String
+    """Range description from Orbit"""
     orbit_class_description: String
+    """Measure in AU(Astronomical Unit)"""
     orbit_class_range: String
 }
 
@@ -62,9 +84,9 @@ type Orbit {
 
 type Query {
     "Return all Neos Objects"
-    getNeos(first: Int, skip: Int): [NEO]
+    getNeos("""Limit amount NEOS Objects returned""" first: Int,"""Start retrieve NEOS Object from this index""" skip: Int): [NEO]
     "Return a specific NEO Object"
-    getNeo(id: ID!): NEO
+    getNeo("""Identifier from NEO""" id: ID!): NEO
     "Return Neo Objects by range of dates"
-    getNeosByDate(firstDate: String!,secondDate:String!,first: Int, skip: Int): [NEO]
+    getNeosByDate("""Start range from query""" firstDate: String!,"""Finish range from query"""secondDate:String!,"""Limit amount NEOS Objects returned""" first: Int, """Start retrieve NEOS Object from this index""" skip: Int): [NEO]
 }

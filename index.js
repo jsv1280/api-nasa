@@ -24,7 +24,7 @@ rest(app)
 graphql(app)
 
 // STATIC FILES
-app.use('/static', express.static(join(__dirname,"public")))
+app.use('/public', express.static(join(__dirname,"public")))
 
 // START SERVER
 app.listen(config.express_api.port, () => {
