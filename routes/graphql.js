@@ -24,7 +24,7 @@ function graphqlApi(app){
     app.use('/api/graphql',graphqlMiddleware({
         schema: schema,
         rootValue: resolvers,
-        graphiql: config.environment
+        graphiql: (config.environment.env == 'development') ? true : false 
     }));
     
 }
