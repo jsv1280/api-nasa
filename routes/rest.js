@@ -6,6 +6,7 @@ const connectDb = require('../lib/mongodb')
 const response = require('../utils/response')
 const httpsRequest = require('../utils/httpsRequest');
 const normalize = require('../utils/normalize');
+const secureJWT = require('../utils/middlewares/secure')
 
 const NeoService = require('../services/neos')
 
@@ -16,8 +17,7 @@ function restApi(app){
     const router = express.Router();
     app.use('/api/rest',router);
 
-    router.get('/', async function(req,res,next){
-
+    router.get('/', secureJWT ,async function(req,res,next){
 
         try {
             neos = await neoService.getNeos(req.query.first,req.query.skip);
@@ -36,7 +36,7 @@ function restApi(app){
         }
     });
 
-    router.post('/', async function(req,res,next){
+    router.post('/',secureJWT ,async function(req,res,next){
 
         let neo
 
@@ -76,7 +76,7 @@ function restApi(app){
         })
     });
 
-    router.delete('/', async function(req,res,next){
+    router.delete('/', secureJWT, async function(req,res,next){
         let message
         try {
 

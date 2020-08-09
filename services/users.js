@@ -42,6 +42,16 @@ class UserService {
         return user
     }
 
+    async getUserByUsername(username){
+        let user
+        try {
+            user = await this.mongoDB.getOneBy(this.collection,'username',username);
+        } catch (error) {
+            errorHandler(error.message)
+        }
+        return user
+    }
+
 }
 
 module.exports = UserService

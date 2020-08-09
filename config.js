@@ -11,5 +11,8 @@ module.exports = {
     mongodb: {
         mongo_uri : `mongodb://${process.env.DB_HOST}:${process.env.DB_HOST}/` ,
         database : process.env.DB_NAME
+    },
+    jwt: {
+        secret: process.env.JWT_SECRET
     }
 }

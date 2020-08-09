@@ -113,4 +113,6 @@ type Query {
 type Mutation {
     "Create an user for authentication"
     createUser(input: UserInput!): User
+    "Generate JWT token to access protected resources from API"
+    login(username: String!, password: String!): String
 }
