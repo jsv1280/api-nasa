@@ -90,9 +90,13 @@ type User {
     password: String!
 }
 
+"Data to create user"
 input UserInput {
+    """Name of user"""
     name: String!, 
+    """Username for login"""
     username: String!, 
+    """Password to save"""
     password: String!
 }
 
@@ -105,14 +109,14 @@ type Query {
     "Return Neo Objects by range of dates"
     getNeosByDate("""Start range from query""" firstDate: String!,"""Finish range from query"""secondDate:String!,"""Limit amount NEOS Objects returned""" first: Int, """Start retrieve NEOS Object from this index""" skip: Int): [NEO]
     "Return all Users Objects"
-    getUsers("""Limit amount NEOS Objects returned""" first: Int,"""Start retrieve NEOS Object from this index""" skip: Int): [User]
+    getUsers("""Limit amount Users Objects returned""" first: Int,"""Start retrieve Users Object from this index""" skip: Int): [User]
     "Return a specific User Object"
-    getUser("""Identifier from NEO""" id: ID!): User
+    getUser("""Identifier from User""" id: ID!): User
 }
 
 type Mutation {
     "Create an user for authentication"
-    createUser(input: UserInput!): User
+    createUser("""Data model of user to register""" input: UserInput!): User
     "Generate JWT token to access protected resources from API"
-    login(username: String!, password: String!): String
+    login("""Username of user register in database """ username: String!, """Password of user register in database """password: String!): String
 }

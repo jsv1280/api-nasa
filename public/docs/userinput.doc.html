@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>Approach</title>
+    <title>UserInput</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -85,7 +85,7 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
-        <li class="slds-is-active" title="Approach">
+        <li  title="Approach">
             <a href="approach.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Approach
             </a>
@@ -165,7 +165,7 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
     <ul>
-        <li  title="UserInput">
+        <li class="slds-is-active" title="UserInput">
             <a href="userinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UserInput
             </a>
@@ -210,9 +210,9 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">Approach</h1>
-        <div class="slds-text-body--regular"><p>Data when NEO asteroid going through Orbit Earth</p>
+        <p class="slds-text-title--caps slds-text-color--weak">INPUT_OBJECT</p>
+        <h1 class="slds-text-heading--large">UserInput</h1>
+        <div class="slds-text-body--regular"><p>Data to create user</p>
 </div>
     </div>
 </section>
@@ -224,7 +224,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Approach</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Date with format YYYY-MM-DD</span></span></li><li><span class="tab"><span class="meta">close_approach_date</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Timestamp date</span></span></li><li><span class="tab"><span class="meta">epoch_date_close_approach</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Vector difference between the velocities of two bodies</span></span></li><li><span class="tab"><span class="meta">relative_velocity</span>: <a class="support type" href="relativevelocity.doc.html">RelativeVelocity</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Maximum distance at which the explosion of a missile head can be expected to </span></span></li><li><span class="tab"><span class="comment line">#   damage seriously its target</span></span></li><li><span class="tab"><span class="meta">miss_distance</span>: <a class="support type" href="missdistance.doc.html">MissDistance</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">input</span> <span class="identifier">UserInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Name of user</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Username for login</span></span></li><li><span class="tab"><span class="meta">username</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Password to save</span></span></li><li><span class="tab"><span class="meta">password</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -235,7 +235,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="neo.doc.html" title="NEO - Near-Earth Objects (NEOs) are comets and asteroids that have been nudged by the gravitational attraction of nearby planets into orbits that allow them to enter the Earth’s neighborhood. Composed mostly of water ice with embedded dust particles, comets originally formed in the cold outer planetary system while most of the rocky asteroids formed in the warmer inner solar system between the orbits of Mars and Jupiter">NEO<em>Near-Earth Objects (NEOs) are comets and asteroids that have been nudged by the gravitational attraction of nearby planets into orbits that allow them to enter the Earth’s neighborhood. Composed mostly of water ice with embedded dust particles, comets originally formed in the cold outer planetary system while most of the rocky asteroids formed in the warmer inner solar system between the orbits of Mars and Jupiter</em></a><li></ul>
+        <ul class="require-by"><li><a href="mutation.doc.html" title="Mutation - ">Mutation<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>

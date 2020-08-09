@@ -30,6 +30,11 @@
                 Query
             </a>
         </li>
+        <li  title="Mutation">
+            <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Mutation
+            </a>
+        </li>
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
@@ -120,6 +125,11 @@
                 RelativeVelocity
             </a>
         </li>
+        <li  title="User">
+            <a href="user.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                User
+            </a>
+        </li>
         <li  title="__Directive">
             <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __Directive
@@ -148,6 +158,16 @@
         <li  title="__Type">
             <a href="type.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __Type
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
+    <ul>
+        <li  title="UserInput">
+            <a href="userinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserInput
             </a>
         </li>
     </ul>
@@ -203,7 +223,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Return all Neos Objects</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: Limit amount NEOS Objects returned</span></span></li><li><span class="tab"><span class="comment line">#   <strong>skip</strong>: Start retrieve NEOS Object from this index</span></span></li><li><span class="tab"><span class="meta">getNeos</span>(<span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">skip</span>: <a class="support type" href="int.doc.html">Int</a>): [<a class="support type" href="neo.doc.html">NEO</a>] </span></li><li></li><li><span class="tab"><span class="comment line">#   Return a specific NEO Object</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: Identifier from NEO</span></span></li><li><span class="tab"><span class="meta">getNeo</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="neo.doc.html">NEO</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Return Neo Objects by range of dates</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>firstDate</strong>: Start range from query</span></span></li><li><span class="tab"><span class="comment line">#   <strong>secondDate</strong>: Finish range from query</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: Limit amount NEOS Objects returned</span></span></li><li><span class="tab"><span class="comment line">#   <strong>skip</strong>: Start retrieve NEOS Object from this index</span></span></li><li><span class="tab"><span class="meta">getNeosByDate</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">firstDate</span>: <a class="support type" href="string.doc.html">String</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">secondDate</span>: <a class="support type" href="string.doc.html">String</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">skip</span>: <a class="support type" href="int.doc.html">Int</a></span></span></li><li><span class="tab">): [<a class="support type" href="neo.doc.html">NEO</a>] </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Return all Neos Objects</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: Limit amount NEOS Objects returned</span></span></li><li><span class="tab"><span class="comment line">#   <strong>skip</strong>: Start retrieve NEOS Object from this index</span></span></li><li><span class="tab"><span class="meta">getNeos</span>(<span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">skip</span>: <a class="support type" href="int.doc.html">Int</a>): [<a class="support type" href="neo.doc.html">NEO</a>] </span></li><li></li><li><span class="tab"><span class="comment line">#   Return a specific NEO Object</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: Identifier from NEO</span></span></li><li><span class="tab"><span class="meta">getNeo</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="neo.doc.html">NEO</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Return Neo Objects by range of dates</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>firstDate</strong>: Start range from query</span></span></li><li><span class="tab"><span class="comment line">#   <strong>secondDate</strong>: Finish range from query</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: Limit amount NEOS Objects returned</span></span></li><li><span class="tab"><span class="comment line">#   <strong>skip</strong>: Start retrieve NEOS Object from this index</span></span></li><li><span class="tab"><span class="meta">getNeosByDate</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">firstDate</span>: <a class="support type" href="string.doc.html">String</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">secondDate</span>: <a class="support type" href="string.doc.html">String</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">skip</span>: <a class="support type" href="int.doc.html">Int</a></span></span></li><li><span class="tab">): [<a class="support type" href="neo.doc.html">NEO</a>] </span></li><li></li><li><span class="tab"><span class="comment line">#   Return all Users Objects</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: Limit amount Users Objects returned</span></span></li><li><span class="tab"><span class="comment line">#   <strong>skip</strong>: Start retrieve Users Object from this index</span></span></li><li><span class="tab"><span class="meta">getUsers</span>(<span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">skip</span>: <a class="support type" href="int.doc.html">Int</a>): [<a class="support type" href="user.doc.html">User</a>] </span></li><li></li><li><span class="tab"><span class="comment line">#   Return a specific User Object</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: Identifier from User</span></span></li><li><span class="tab"><span class="meta">getUser</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="user.doc.html">User</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
