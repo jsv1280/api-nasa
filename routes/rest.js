@@ -6,7 +6,7 @@ const connectDb = require('../lib/mongodb')
 const response = require('../utils/response')
 const httpsRequest = require('../utils/httpsRequest');
 const normalize = require('../utils/normalize');
-const secureJWT = require('../utils/middlewares/secure')
+const secureJWT = require('../utils/middlewares/secureRest')
 
 const NeoService = require('../services/neos')
 
