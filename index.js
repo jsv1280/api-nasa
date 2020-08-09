@@ -8,6 +8,9 @@ const helmet = require('helmet');
 // UTILS
 const { join } = require('path')
 
+// ERRORS
+const errors = require('./utils/middlewares/error')
+
 // INITALIZE EXPRESS APP
 const app = express();
 const rest = require('./routes/rest')
@@ -22,6 +25,9 @@ rest(app)
 
 // LOAD GRAPHQL API
 graphql(app)
+
+//ERRORS
+app.use(errors)
 
 // STATIC FILES
 app.use('/public', express.static(join(__dirname,"public")))
