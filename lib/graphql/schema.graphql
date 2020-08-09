@@ -81,6 +81,21 @@ type Orbit {
     orbit_class: OrbitClass
 }
 
+"Sign up model to authenticate against API"
+type User {
+    """Unique identifier from NEO"""
+    _id: ID!
+    name: String!
+    username: String!
+    password: String!
+}
+
+input UserInput {
+    name: String!, 
+    username: String!, 
+    password: String!
+}
+
 
 type Query {
     "Return all Neos Objects"
@@ -89,4 +104,13 @@ type Query {
     getNeo("""Identifier from NEO""" id: ID!): NEO
     "Return Neo Objects by range of dates"
     getNeosByDate("""Start range from query""" firstDate: String!,"""Finish range from query"""secondDate:String!,"""Limit amount NEOS Objects returned""" first: Int, """Start retrieve NEOS Object from this index""" skip: Int): [NEO]
+    "Return all Users Objects"
+    getUsers("""Limit amount NEOS Objects returned""" first: Int,"""Start retrieve NEOS Object from this index""" skip: Int): [User]
+    "Return a specific User Object"
+    getUser("""Identifier from NEO""" id: ID!): User
+}
+
+type Mutation {
+    "Create an user for authentication"
+    createUser(input: UserInput!): User
 }
